@@ -1,0 +1,405 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+:root{
+  /*--chrome-background-color: hsl(220, 35%, 12%) !important;
+  --chrome-secondary-background-color: hsl(220, 30%, 15%) !important;
+  --tab-selection-background-color: hsl(220, 45%, 30%) !important;
+	--tab-hover-background-color: hsl(220, 35%, 25%)!important;*/
+  --uc-dark-bkgnd-color: rgb(12,16,32);
+  --uc-light-bkgnd-color: rgb(46,54,69);
+  --uc-active-color: rgb(26, 70, 102);
+  --uc-text-color: rgb(195, 198, 201);
+  --uc-border-color: rgb(43,130,191);
+}
+
+#navigator-toolbox{
+	margin-top:-1px;
+}
+#navigator-toolbox:after{
+  display: none;
+}
+
+#navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar),
+#browser-bottombox,
+.browserContainer > findbar,
+#PopupSearchAutoComplete{
+	background-color: var(--uc-light-bkgnd-color) !important;
+	color: var(--uc-text-color) !important;
+}
+
+.subviewbutton > .toolbarbutton-text,
+#PopupSearchAutoComplete .search-panel-input-value{
+  color: var(--uc-text-color) !important;
+}
+
+#sidebar-search-container #search-box{
+  -moz-appearance: none !important;
+  color: var(--uc-text-color) !important;
+}
+
+#TabsToolbar,
+.searchbar-textbox,
+#urlbar,
+#back-button,
+#forward-button,
+#reload-button,
+#stop-button,
+#sidebar-search-container #search-box{
+	background-color: var(--uc-dark-bkgnd-color) !important;
+}
+#back-button,
+#forward-button,
+#reload-button,
+#stop-button{
+  margin: 3px 0 !important;
+  padding:0 2px !important;
+  min-height: 20px;
+  /* TODO box outline wtf */
+  border-top:1px solid rgb(39,45,51) !important;
+  border-bottom:1px solid rgba(39,45,51) !important;
+  /*box-shadow: 4px 0px 1px 1px rgba(12, 12, 13, 0.3)*/
+}
+#back-button .toolbarbutton-icon,
+#forward-button .toolbarbutton-icon,
+#reload-button .toolbarbutton-icon,
+#stop-button .toolbarbutton-icon{
+  padding-top: 3px !important;
+  padding-bottom:3px !important;
+}
+
+#urlbar{
+  margin-left:0px !important;
+  border-left:none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+}
+#sidebar-search-container #search-box{
+	-moz-appearance:none !important;
+	background-color: var(--uc-dark-bkgnd-color) !important;
+	border: none !important;
+	color: var(--uc-text-color) !important;
+}
+
+#PopupAutoCompleteRichResult .ac-title,#PopupAutoCompleteRichResult .search-one-offs,.search-panel-input-value{
+	color: var(--uc-text-color) !important;
+}
+
+.search-panel-one-offs,
+.downloadsPanelFooterButton:not(:hover),
+#overflowMenu-customize-button:not(:hover){
+  background-color: var(--uc-light-bkgnd-color) !important;
+}
+
+#PopupAutoCompleteRichResult .ac-emphasize-text.ac-emphasize-text-title{
+	color: rgb(195, 73, 92) !important;
+}
+
+.toolbarbutton-icon, toolbarbutton stack{
+  border-radius: 0px !important;
+}
+
+#tab-view-deck toolbarbutton:not([disabled]):not(.scrollbutton-down):not(.scrollbutton-up):hover > .toolbarbutton-icon,
+#tab-view-deck toolbarbutton:not([disabled]):hover > stack,
+#tab-view-deck toolbarbutton[open="true"] > .toolbarbutton-icon,
+#tab-view-deck toolbarbutton[open="true"] > stack,
+#tab-view-deck toolbarbutton[checked="true"] > .toolbarbutton-icon,
+#tab-view-deck toolbarbutton[checked="true"] > stack,
+.bookmark-item:hover{
+  background-color: var(--uc-active-color) !important;
+  box-shadow: 0 0 1px 1px var(--uc-border-color) !important;
+}
+#TabsToolbar .scrollbutton-down:hover,
+#TabsToolbar .scrollbutton-up:hover{
+  background-color: var(--uc-active-color) !important;
+  box-shadow: 0 0 1px 1px var(--uc-border-color) !important;
+}
+
+.tabbrowser-tab[selected] .tab-background{
+  background-image: linear-gradient(var(--uc-active-color) 75%,var(--uc-light-bkgnd-color)) !important;
+  box-shadow: 0 3px 1px -1px #f7f1ff inset,
+               0 10px 4px -5px var(--uc-border-color) inset,
+               0 -2px 0 rgba(0,0,0,.06) inset !important;
+}
+
+/*
+#main-window[sizemode="maximized"] > #tab-view-deck > vbox > #navigator-toolbox:not([customizing]) > #nav-bar,
+#main-window[sizemode="maximized"][privatebrowsingmode] > #tab-view-deck > vbox > #navigator-toolbox:not([customizing]) > #nav-bar{
+margin-right: 35vw !important;
+}
+#main-window[sizemode="maximized"] > #tab-view-deck > vbox > #navigator-toolbox:not([customizing]) > #PersonalToolbar,
+#main-window[sizemode="maximized"][privatebrowsingmode] > #tab-view-deck > vbox > #navigator-toolbox:not([customizing]) > #PersonalToolbar{
+margin-top: -32px !important;
+margin-left: 65vw !important;
+  height:32px;
+  padding-bottom:0px !important;
+}*/
+
+.tabbrowser-tab .tab-close-button{
+  height:14px !important;
+	width:14px !important;
+  max-width: 14px !important;
+}
+
+.tabbrowser-tab .tab-close-button > .toolbarbutton-icon{
+  width:14px !important;
+}
+
+.tabbrowser-tab:not(:hover) .tab-close-button{
+  display:none;
+}
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{
+  display:block !important;
+}
+
+/*PANEL STUFF*/
+
+
+
+.panel-arrowcontent,
+#placesContext,
+#alltabs-popup .arrowscrollbox-scrollbox,
+#contentAreaContextMenu,
+.textbox-contextmenu,
+#mainPopupSet menupopup,
+#bookmarks-menu-button menu menupopup {
+	border: 3px solid #434850 !important;
+	background: var(--uc-dark-bkgnd-color) !important;
+	border-radius: 5px !important;
+	color: var(--uc-text-color) !important;
+}
+#alltabs-popup menuitem,
+#bookmarks-menu-button menu menupopup .subviewbutton{
+	color:var(--uc-text-color) !important;
+}
+#mainPopupSet menupopup,
+#mainPopupSet menupopup menuitem,
+#mainPopupSet menupopup menu,
+#alltabs-popup,
+#bookmarks-menu-button menu menupopup{
+	-moz-appearance: none !important;
+	border:none;
+}
+#mainPopupSet menupopup menuitem,#mainPopupSet menupopup menu{
+	min-height:24px !important;
+}
+.panel-subviews,
+#mainPopupSet menupopup,
+#bookmarks-menu-button menu menupopup > hbox,
+.search-panel-header.search-panel-current-engine,
+.search-panel-current-input, panelview,
+.PanelUI-subView {
+   background-color:  var(--uc-dark-bkgnd-color) !important;
+}
+#BMB_bookmarksPopup{background-color: unset !important;}
+/*#bookmarks-menu-button menu menupopup{
+	
+border: solid 3px rgb(67, 72, 80) !important;;
+}*/
+.subviewbutton:hover,
+#PanelUI-contents toolbarbutton:hover,
+#mainPopupSet menupopup menuitem:hover,
+#mainPopupSet menupopup menu:hover,
+#PanelUI-footer toolbarbutton:not(#PanelUI-quit):hover{
+  background-color: var(--uc-active-color) !important;
+}
+#PanelUI-footer *,
+panelview toolbarbutton.subviewbutton .toolbarbutton-text,
+#downloadsFooter,#customizationui-widget-panel label,
+.autocomplete-richlistitem .ac-title,
+#widget-overflow-list toolbarbutton,
+#mainPopupSet menupopup menuitem,
+#mainPopupSet menupopup menu,
+#bookmarks-menu-button menu menupopup,
+#PopupSearchAutoComplete .autocomplete-tree.plain.search-panel-tree,
+#PanelUI-contents toolbarbutton,
+#sidebar-switcher-target,
+#alltabs_containersTab{
+    color: var(--uc-text-color)!important;
+}
+
+.tab-line{
+  height:2px !important;
+  border-bottom: solid 1px lightblue !important;
+}
+/* CONTEXT MENU TWEAKS*/
+#placesContext,
+#contentAreaContextMenu,
+#contentAreaContextMenu menupopup,
+#page-action-mainView,
+.textbox-contextmenu{
+  -moz-appearance:none !important;
+  background-color:var(--uc-dark-bkgnd-color) !important; 
+  border:none;
+}
+#placesContext menuitem,
+#contentAreaContextMenu menuitem,
+#contentAreaContextMenu menu,
+.textbox-contextmenu menuitem{
+  color: var(--uc-text-color) !important;
+-moz-appearance:none;
+}
+#placesContext menuitem,
+#contentAreaContextMenu menuitem:not([class="menuitem-iconic"]){
+  min-height:24px !important;
+  height:24px;
+}
+#placesContext menuitem[disabled="true"],
+#contentAreaContextMenu menuitem[disabled="true"],
+#mainPopupSet menupopup menuitem[disabled="true"],
+#BMB_bookmarksPopup menuitem[disabled],
+.textbox-contextmenu menuitem[disabled]{
+  color: black !important;
+  text-shadow: 0px 0px 3px silver !important;
+}
+
+#placesContext menuitem:hover,
+#contentAreaContextMenu menuitem:hover,
+#contentAreaContextMenu menu:hover,
+#contentAreaContextMenu menu[open],
+.textbox-contextmenu menuitem:hover{
+  background-color:var(--uc-active-color);
+  border:none;
+}
+#placesContext menuitem[disabled="true"]:hover,
+#contentAreaContextMenu menuitem[disabled="true"]:hover,
+#contentAreaContextMenu menu[disabled="true"]:hover,
+#mainPopupSet menupopup menuitem[disabled="true"]:hover,
+#mainPopupSet menupopup menu[disabled="true"]:hover,
+#BMB_bookmarksPopup menuitem[disabled]:hover,
+.textbox-contextmenu menuitem[disabled]:hover{
+  background-color:rgb(221, 74, 84) !important;
+}
+/*#contentAreaContextMenu .scrollbox-innerbox{ 
+  width: 210px !important;
+  min-width: 210px !important;
+  min-height: 280px !important;
+}
+#contentAreaContextMenu menupopup .scrollbox-innerbox{ 
+  width: unset !important;
+  min-width: unset !important;
+  min-height: unset !important;
+}*/
+
+#contentAreaContextMenu #context-navigation:not([hidden]){ 
+  -moz-box-orient: vertical !important;
+  position:absolute !important;
+  background-color: transparent !important;
+  pointer-events: none;
+
+}
+#contentAreaContextMenu #context-navigation:not([hidden]) menuitem{
+  pointer-events: auto !important;
+  position:absolute !important;
+	margin-left:0px;
+}
+#contentAreaContextMenu #context-navigation:not([hidden])~menuitem,
+#contentAreaContextMenu #context-navigation:not([hidden])~menu,
+#contentAreaContextMenu #context-navigation:not([hidden])~menuseparator{
+  margin-left: 30px;
+}
+/*#contentAreaContextMenu menupopup menuitem,
+#contentAreaContextMenu menupopup menu,
+#contentAreaContextMenu menupopup menuseparator{
+  margin-left: unset;
+}*/
+
+#context-sep-navigation{
+	display:none;
+}
+
+#contentAreaContextMenu #context-navigation:not([hidden])~menuitem .menu-text,
+#contentAreaContextMenu #context-navigation:not([hidden])~menu .menu-text{
+  margin-left: -20px !important;
+}
+
+#contentAreaContextMenu #context-navigation:not([hidden])~#context-savepage,
+#contentAreaContextMenu #context-navigation:not([hidden])~#context-sep-navigation+menuitem[generateditemid]{
+  margin-top: -128px !important;
+}
+
+#contentAreaContextMenu #context-navigation:not([hidden])~menuitem[generateditemid]~#context-savepage{
+  margin-top: unset !important;
+}
+/*#contentAreaContextMenu #context-navigation:not([hidden])~menuitem:last-child,
+#contentAreaContextMenu #context-navigation:not([hidden])~menu:last-child{
+  margin-bottom:106px;
+}
+
+#contentAreaContextMenu .scrollbox-innerbox{ 
+  overflow: hidden;
+
+}
+#contentAreaContextMenu menupopup .scrollbox-innerbox{ 
+  overflow: unset;
+  min-height: unset;
+}*/
+#contentAreaContextMenu .scrollbox-innerbox::after{ 
+  content: "";
+  position: absolute;
+  margin-bottom:106px;
+  visibility: hidden;
+}
+
+#contentAreaContextMenu autorepeatbutton{
+  display:none;
+}
+#contentAreaContextMenu autorepeatbutton[collapsed]~.arrowscrollbox-scrollbox .scrollbox-innerbox::after{
+  display:none;
+}
+#contentAreaContextMenu menupopup .scrollbox-innerbox::after{ 
+  display: none;
+
+}
+
+#history-panel,
+#bookmarksPanel,
+#sidebar-header,
+#alltabs-popup{
+	background-color: var(--uc-light-bkgnd-color) !important;
+	color: var(--uc-text-color);
+	border-top: none !important;
+}
+#alltabs-popup,
+#alltabs_containersMenuTab{
+  border: none !important;
+}
+#alltabs_containersMenuTab{
+  -moz-appearance: none !important;
+  background-color:transparent !important;
+}
+
+.sidebar-placesTreechildren,
+#BMB_bookmarksPopup .subviewbutton:not([disabled="true"]){
+	color: var(--uc-text-color);
+}
+.autocomplete-richlistbox{
+background-color: var(--uc-dark-bkgnd-color) !important;	
+}
+
+.autocomplete-richlistbox > scrollbox{
+	overflow-x:auto !important;
+}
+
+.autocomplete-richlistitem[selected="true"],
+.sidebar-placesTreechildren::-moz-tree-cell{
+	outline:none;
+	border-radius:0px;
+	background-image:none;
+}
+.sidebar-placesTreechildren::-moz-tree-cell(selected){
+	background-color: var(--uc-border-color) !important;
+}
+.sidebar-placesTreechildren::-moz-tree-cell(hover){
+	background-color: var(--uc-active-color) !important;
+}
+.tab-loading-burst[bursting]::before {
+  fill: #55aaff  !important;
+}
+
+#main-window:not([inFullscreen="true"]) #navigator-toolbox{
+	margin-bottom:-1px;
+}
+#PanelUI-menu-button{
+  list-style-image:  url('data:image/png;base64,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') !important;
+}
