@@ -30,7 +30,7 @@
 #context-sep-navigation{
   display:none;
 }
-
+/* Move text leftwards - not the whole element */
 #contentAreaContextMenu #context-navigation:not([hidden]) ~ menuitem > .menu-text,
 #contentAreaContextMenu #context-navigation:not([hidden]) ~ menu > .menu-text{
   margin-left: -20px !important;
