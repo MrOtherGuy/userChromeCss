@@ -31,7 +31,7 @@
   display:none;
 }
 
-/* Move text leftwards */
+/* Move only text leftwards - not the whole element */
 #contentAreaContextMenu #context-navigation:not([hidden]) ~ menuitem > .menu-text,
 #contentAreaContextMenu #context-navigation:not([hidden]) ~ menu > .menu-text{
   margin-left: -20px !important;
@@ -49,7 +49,10 @@
   margin-top: unset !important;
 }
 
-/* It's hard to explain why this is necessary, it has to do with how context menu height is calculated */
+/*
+* This is needed because it is necessary to adjust the bottom * margin of last ENABLED element. So create a pseudo-element 
+* which will always be last and set it's margin.
+*/
 #contentAreaContextMenu .scrollbox-innerbox::after{ 
   content: "";
   position: absolute;
