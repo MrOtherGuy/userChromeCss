@@ -381,7 +381,7 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
 /* On non maximized windows, autohide Bookmarks toolbar */
 /* Hovering over tabs toolbar doesn't show bookmarks toolbar */
 #main-window[sizemode="normal"] #PersonalToolbar:not(:hover){
-  margin-top:-30px;
+  margin-top:-27px;
   transition: margin-top 0.15s ease-out 0.15s !important;
 }
 
