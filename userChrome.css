@@ -60,7 +60,9 @@
 	color: var(--uc-text-color) !important;
 }
 
-#PopupAutoCompleteRichResult .ac-title,#PopupAutoCompleteRichResult .search-one-offs,.search-panel-input-value{
+#PopupAutoCompleteRichResult .ac-title,
+#PopupAutoCompleteRichResult .search-one-offs,
+.search-panel-input-value{
 	color: var(--uc-text-color) !important;
 }
 
@@ -125,6 +127,8 @@
 }
 
 /* PANEL STUFF */
+/* Many of these could probably just use #mainPopupSet > menupopup */
+
 
 .panel-arrowcontent,
 #placesContext,
@@ -132,15 +136,12 @@
 #contentAreaContextMenu,
 .textbox-contextmenu,
 #mainPopupSet menupopup,
-#bookmarks-menu-button menu menupopup {
+#bookmarks-menu-button menu menupopup,
+#main-menubar menupopup{
 	border: 3px solid #434850 !important;
 	background: var(--uc-dark-bkgnd-color) !important;
 	border-radius: 5px !important;
 	color: var(--uc-text-color) !important;
-  -moz-border-top-colors: none !important;
-  -moz-border-bottom-colors: none !important;
-  -moz-border-left-colors: none !important;
-  -moz-border-right-colors: none !important;
 }
 
 
@@ -148,19 +149,24 @@
 #bookmarks-menu-button menu menupopup .subviewbutton{
 	color:var(--uc-text-color) !important;
 }
+
 #mainPopupSet menupopup,
 #mainPopupSet menupopup menuitem,
 #mainPopupSet menupopup menu,
+#main-menubar menupopup,
 #alltabs-popup,
 #bookmarks-menu-button menu menupopup{
 	-moz-appearance: none !important;
-	border:none;
 }
-#mainPopupSet menupopup menuitem,#mainPopupSet menupopup menu{
+#mainPopupSet menupopup menuitem,
+#mainPopupSet menupopup menu,
+#main-menubar menupopup menuitem,
+#main-menubar menupopup menu{
 	min-height:24px !important;
 }
 .panel-subviews,
 #mainPopupSet menupopup,
+#main-menubar menupopup,
 #bookmarks-menu-button menu menupopup > hbox,
 .search-panel-header.search-panel-current-engine,
 .search-panel-current-input, panelview,
@@ -201,6 +207,8 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
   background-color:transparent !important;
 }
 
+.menu-right{ filter: invert(100%) }
+
 /* CONTEXT MENU THINGS */
 
 #placesContext,
@@ -215,9 +223,11 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
 #placesContext menuitem,
 #contentAreaContextMenu menuitem,
 #contentAreaContextMenu menu,
+#main-menubar menuitem,
+#main-menubar menu,
 .textbox-contextmenu menuitem{
   color: var(--uc-text-color) !important;
--moz-appearance:none;
+	-moz-appearance:none;
 }
 #placesContext menuitem,
 #contentAreaContextMenu #context-navigation:not([hidden])~menu,
@@ -225,10 +235,13 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
   min-height:24px !important;
   height:24px;
 }
-
 #placesContext menuitem[disabled="true"],
 #contentAreaContextMenu menuitem[disabled="true"],
+#contentAreaContextMenu menu[disabled="true"],
 #mainPopupSet menupopup menuitem[disabled="true"],
+#mainPopupSet menupopup menu[disabled="true"],
+#main-menubar menupopup menuitem[disabled="true"],
+#main-menubar menupopup menu[disabled="true"],
 #BMB_bookmarksPopup menuitem[disabled],
 .textbox-contextmenu menuitem[disabled]{
   color: black !important;
@@ -248,6 +261,8 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
 #contentAreaContextMenu menu[disabled="true"]:hover,
 #mainPopupSet menupopup menuitem[disabled="true"]:hover,
 #mainPopupSet menupopup menu[disabled="true"]:hover,
+#main-menubar menupopup menuitem[disabled="true"]:hover,
+#main-menubar menupopup menu[disabled="true"]:hover,
 #BMB_bookmarksPopup menuitem[disabled]:hover,
 .textbox-contextmenu menuitem[disabled]:hover{
   background-color:rgb(221, 74, 84) !important;
@@ -272,8 +287,8 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
 	display:none;
 }
 
-#contentAreaContextMenu #context-navigation:not([hidden]) ~ menuitem > .menu-text,
-#contentAreaContextMenu #context-navigation:not([hidden]) ~ menu > .menu-text{
+#contentAreaContextMenu #context-navigation:not([hidden]) ~ :-moz-any(menu,menuitem) > .menu-text,
+#contentAreaContextMenu #context-navigation:not([hidden]) ~ :-moz-any(menu,menuitem) > .menu-iconic-left{
   margin-left: -20px !important;
 }
 
@@ -293,11 +308,14 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
   visibility: hidden;
 }
 
-#contentAreaContextMenu autorepeatbutton{
+#contentAreaContextMenu > arrowscrollbox > toolbarbutton{
   display:none;
 }
-#contentAreaContextMenu autorepeatbutton[collapsed]~.arrowscrollbox-scrollbox .scrollbox-innerbox::after{
+#contentAreaContextMenu > arrowscrollbox > toolbarbutton[collapsed]~.arrowscrollbox-scrollbox .scrollbox-innerbox::after{
   display:none;
+}
+#tabbrowser-tabs > arrowscrollbox > toolbarbutton{
+  border: none !important;
 }
 #contentAreaContextMenu menupopup .scrollbox-innerbox::after{ 
   display: none;
@@ -376,13 +394,14 @@ background-color: var(--uc-dark-bkgnd-color) !important;
 }
 
 #main-window[sizemode="normal"]:not([customizing]) #PersonalToolbar{
-  transition: margin 0.15s ease-in-out 50ms,opacity 100ms ease-in-out 50ms !important;
+  transition: margin 0.15s ease-in-out 50ms, z-index 16ms linear 100ms!important;
   height: 28px;
+  position: relative;
+  z-index: 1;
 }
 #main-window[sizemode="normal"]:not([customizing]) #toolbar-menubar[inactive]~#PersonalToolbar{
   margin-top:-28px;
-  opacity:0;
-  pointer-events: none;
+  z-index: -1;
 }
 
 toolbarbutton.bookmark-item:not(.subviewbutton) {
@@ -397,7 +416,9 @@ margin: 0px !important;
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-
+#urlbar:not(:focus-within){
+  border-color: rgb(39,45,51) !important;
+}
 toolbarbutton[disabled]{ opacity: 1 !important}
 toolbarbutton[disabled] .toolbarbutton-icon{ opacity: 0.4 !important}
 
@@ -418,7 +439,7 @@ toolbarbutton[disabled] .toolbarbutton-icon{ opacity: 0.4 !important}
 }
 
 #forward-button{ border-right: 1px solid rgba(39,45,51) !important;}
-#stop-reload-button{ padding: 0 !important;}
+#stop-reload-button{padding: 0 !important;}
 
 /* Note, this padding will affect the whole toolbar height */
 #back-button .toolbarbutton-icon,
@@ -427,6 +448,8 @@ toolbarbutton[disabled] .toolbarbutton-icon{ opacity: 0.4 !important}
 #stop-button .toolbarbutton-icon{
   padding-top: 3px !important;
   padding-bottom:3px !important;
+  height: unset !important;
+  width: unset !important;
 }
 
 /* Custom menu button icon */
@@ -439,6 +462,8 @@ toolbarbutton[disabled] .toolbarbutton-icon{ opacity: 0.4 !important}
 		Correct positioning is also dependent on the number of toolbarbuttons
 		So adjust top and left properties
 */
+/* VERY dependent on toolbar layout */
+
 #forward-button+toolbarspring{
   min-width: 190px !important;
 }
@@ -521,6 +546,7 @@ toolbarbutton[disabled] .toolbarbutton-icon{ opacity: 0.4 !important}
 }
 /* Show menubar on same row as tabs (accessible via Alt) 
 		This also shows bookmarks toolbar
+		May require manual margin adjusting
 */
 #toolbar-menubar:not([inactive])~#TabsToolbar{
 	margin-left:330px !important;
@@ -530,9 +556,20 @@ toolbarbutton[disabled] .toolbarbutton-icon{ opacity: 0.4 !important}
 #toolbar-menubar:not([inactive])~#TabsToolbar .titlebar-placeholder[type="pre-tabs"]{
 	display: none !important;
 }
+/* May require manual margin adjusting */
 #main-window[sizemode="maximized"] #toolbar-menubar:not([inactive])~#TabsToolbar{
 	margin-top: -28px !important;
 }
 #toolbar-menubar{
 	background-color: var(--uc-dark-bkgnd-color) !important;
 }
+/* Blank page background */
+#tabbrowser-tabpanels{
+  background-color: var(--uc-light-bkgnd-color) !important;
+}
+/* sidebar document scrollbar colors */
+#bookmarksPanel,#history-panel{
+	scrollbar-face-color: var(--uc-text-color) !important;
+  scrollbar-track-color: var(--uc-light-bkgnd-color) !important;
+}
+

@@ -1,0 +1,7 @@
+*
+!.gitignore
+!userChrome.css
+!userContent.css
+!README.md
+!LICENCE
+!context-menu/*.css

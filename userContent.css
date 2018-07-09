@@ -1,0 +1,30 @@
+/* Limit CSS data leak, Potentially breaks some elements */
+body input:not([value=""])[type],
+body input:not([value=""])[type]:focus ~ *,
+body input:not([value=""])[type] * {
+	background-image: none !important;
+	font-family: inherit !important;
+	list-style-image: none !important;
+	cursor: unset !important;
+}
+body input:not([value=""])[type]::before,
+body input:not([value=""])[type]:focus ~ *::before,
+body input:not([value=""])[type] *::before,
+body input:not([value=""])[type]::after,
+body input:not([value=""])[type]:focus ~ *::after,
+body input:not([value=""])[type] *::after {
+	content:none !important;
+}
+/* Scrollbar colors */
+:root{scrollbar-face-color: rgb(210,210,210);
+scrollbar-track-color: rgb(46,54,69);}
+
+/* Transparent reader toolbar */
+@-moz-document url-prefix("about:reader"){
+.reader-toolbar, .reader-toolbar .button:not(:hover) {
+	background-color: transparent !important;
+	border: none !important;
+	}
+.reader-toolbar:not(:hover)>*:not([open]){ visibility:hidden; }
+body{ text-align: justify; }  
+}
