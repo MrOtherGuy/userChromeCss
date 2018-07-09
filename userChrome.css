@@ -268,18 +268,21 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
   background-color:rgb(221, 74, 84) !important;
 }
 
-#contentAreaContextMenu #context-navigation:not([hidden]){ 
+#context-navigation{ background-color: transparent !important; }
+
+/* VERTICAL CONTEXT MENU */
+
+#context-navigation:not([hidden]){ 
   -moz-box-orient: vertical !important;
   position:absolute !important;
-  background-color: transparent !important;
   pointer-events: none;
 
 }
-#contentAreaContextMenu #context-navigation:not([hidden]) menuitem{
+#context-navigation:not([hidden]) menuitem{
   pointer-events: auto !important;
   position:absolute !important;
 }
-#contentAreaContextMenu #context-navigation:not([hidden])~*{
+#context-navigation:not([hidden])~*{
   margin-left: 30px !important;
 }
 
@@ -287,17 +290,17 @@ panelview toolbarbutton.subviewbutton .toolbarbutton-text,
 	display:none;
 }
 
-#contentAreaContextMenu #context-navigation:not([hidden]) ~ :-moz-any(menu,menuitem) > .menu-text,
-#contentAreaContextMenu #context-navigation:not([hidden]) ~ :-moz-any(menu,menuitem) > .menu-iconic-left{
+#context-navigation:not([hidden]) ~ :-moz-any(menu,menuitem) > .menu-text,
+#context-navigation:not([hidden]) ~ :-moz-any(menu,menuitem) > .menu-iconic-left{
   margin-left: -20px !important;
 }
 
-#contentAreaContextMenu #context-navigation:not([hidden])~#context-savepage,
-#contentAreaContextMenu #context-navigation:not([hidden])~#context-sep-navigation+menuitem[generateditemid]{
+#context-navigation:not([hidden])~#context-savepage,
+#context-navigation:not([hidden])~#context-sep-navigation+menuitem[generateditemid]{
   margin-top: -128px !important;
 }
 
-#contentAreaContextMenu #context-navigation:not([hidden])~menuitem[generateditemid]~#context-savepage{
+#context-navigation:not([hidden])~menuitem[generateditemid]~#context-savepage{
   margin-top: unset !important;
 }
 
