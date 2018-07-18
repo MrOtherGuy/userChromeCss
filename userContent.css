@@ -1,23 +1,33 @@
 /* Limit CSS data leak, Potentially breaks some elements */
 body input:not([value=""])[type],
 body input:not([value=""])[type]:focus ~ *,
+/* For more strict version which WILL break some things 
+   Just uncomment the next line */
+/* body input:not([value=""])[type] ~ *, */
 body input:not([value=""])[type] * {
 	background-image: none !important;
 	font-family: inherit !important;
 	list-style-image: none !important;
 	cursor: unset !important;
+	content: none !important;
 }
 body input:not([value=""])[type]::before,
 body input:not([value=""])[type]:focus ~ *::before,
+/* Uncomment for strict version */
+/* body input:not([value=""])[type] ~ *::before, */
 body input:not([value=""])[type] *::before,
 body input:not([value=""])[type]::after,
 body input:not([value=""])[type]:focus ~ *::after,
+/* Uncomment for strict version */
+/* body input:not([value=""])[type] ~ *::after, */
 body input:not([value=""])[type] *::after {
 	content:none !important;
 }
-/* Scrollbar colors */
-:root{scrollbar-face-color: rgb(210,210,210);
-scrollbar-track-color: rgb(46,54,69);}
+/* Scrollbar colors, Fx63+ */
+:root{
+	scrollbar-face-color: rgb(210,210,210);
+	scrollbar-track-color: rgb(46,54,69);
+}
 
 /* Transparent reader toolbar */
 @-moz-document url-prefix("about:reader"){
@@ -28,3 +38,4 @@ scrollbar-track-color: rgb(46,54,69);}
 .reader-toolbar:not(:hover)>*:not([open]){ visibility:hidden; }
 body{ text-align: justify; }  
 }
+
